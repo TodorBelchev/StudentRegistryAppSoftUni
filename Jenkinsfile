@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/TodorBelchev/StudentRegistryAppSoftUni/.git'
+                git branch: 'main', url: 'https://github.com/TodorBelchev/StudentRegistryAppSoftUni'
             }
         }
 
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'npm install'
+                    bat 'npm install'
                 }
             }
         }
@@ -19,8 +19,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-
-                    sh 'npm test'
+                    bat 'npm test'
                 }
             }
         }
