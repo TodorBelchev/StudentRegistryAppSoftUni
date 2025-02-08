@@ -16,6 +16,14 @@ pipeline {
             }
         }
 
+        stage('Start the application') {
+            steps {
+                script {
+                    bat 'start /b npm start'
+                }
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
